@@ -27,17 +27,26 @@
         /* 헤더 */
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
         header h1 {
-            font-size: 2.5rem;
-            color: #222;
-            margin: 0;
+            font-size: 2.8rem;
+            color: #007bff;
+            margin: 0 0 10px 0;
+            font-weight: 400;
         }
         header p {
-            font-size: 1.1rem;
+            /* 화면 너비에 따라 폰트 크기를 동적으로 조절합니다. (최소 1rem, 최대 1.4rem) */
+            font-size: clamp(1rem, 3.5vw, 1.4rem);
             color: #555;
-            margin-top: 5px;
+            margin: 5px auto 0 auto;
+            max-width: 700px; /* 너무 넓은 화면에서 줄 길이가 과도하게 길어지는 것을 방지 */
+            line-height: 1.6;
+            /* white-space: nowrap; <- 이 속성을 제거하여 자연스러운 줄바꿈을 허용합니다. */
         }
 
         /* 카드 그리드 (3열) */
@@ -177,8 +186,8 @@
     <div class="container">
         
         <header>
-            <h1>jeju-mandarin 님의 유틸리티 허브</h1>
-            <p>일상 속에서 유용한 간단한 웹 도구 모음입니다.</p>
+            <!-- <h1>🍊 jeju-mandarin 님의 유틸리티 허브</h1> -->
+            <p>🍊 일상 속에서 유용한 간단한 웹 도구 모음입니다. 🍊</p>
         </header>
 
         <main>
