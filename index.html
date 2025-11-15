@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jeju-mandarin의 유틸리티 허브</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        /* 헤더 */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #222;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* 카드 그리드 */
+        .card-grid {
+            display: grid;
+            /* 모바일에서는 1열, 데스크탑(600px 이상)에서는 2열 */
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        /* 600px 이상일 때 2열 그리드로 변경 */
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* 개별 카드 스타일 */
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            display: flex;
+            flex-direction: column; /* 내부 요소들을 세로로 정렬 */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        .card h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+        }
+        .card h2 .emoji {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            flex-grow: 1; /* 이 부분이 p 태그를 늘려서 버튼을 맨 아래로 밀어냄 */
+        }
+        
+        /* 카드 내부 버튼 */
+        .card-button {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            background-color: #007bff;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-top: 15px; /* 설명(p)과의 간격 */
+            transition: background-color 0.2s;
+        }
+        .card-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>jeju-mandarin 님의 유틸리티 허브</h1>
+            <p>일상 속에서 유용한 간단한 웹 도구 모음입니다.</p>
+        </header>
+
+        <main>
+            <div class="card-grid">
+
+                <div class="card">
+                    <h2><span class="emoji">🍀</span> 로또 번호 생성기</h2>
+                    <p>원하는 개수만큼 중복되지 않는 로또 번호 조합을 생성합니다. 한 줄 내의 중복은 물론, 여러 줄 간의 중복도 100% 방지합니다.</p>
+                    <a href="https://jeju-mandarin.github.io/lotto/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h2><span class="emoji">💰</span> 예적금 이자 계산기</h2>
+                    <p>복리/단리, 적금/예금 4가지 방식의 이자를 계산합니다. 15.4%의 세금을 적용한 세후 총액과 방식별 차액을 비교해 줍니다.</p>
+                    <a href="https://jeju-mandarin.github.io/savecalc/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h2><span class="emoji">⏳</span> D-Day 계산기</h2>
+                    <p>기념일이나 중요한 일정까지 남은 날짜(D-), 혹은 지난 날짜(D+)를 계산하고 목록으로 관리할 수 있습니다.</p>
+                    <a href="https://jeju-mandarin.github.io/d-day/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h2><span class="emoji">⌨️</span> 실시간 글자 수 세기</h2>
+                    <p>텍스트의 글자 수(공백 포함/제외), UTF-8 바이트, 단어 수, 줄 수를 실시간으로 계산합니다. 예상 읽기 시간과 입력 경과 시간도 측정해 줍니다.</p>
+                    <a href="https://jeju-mandarin.github.io/text-utils/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 jeju-mandarin. Hosted on GitHub Pages.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
