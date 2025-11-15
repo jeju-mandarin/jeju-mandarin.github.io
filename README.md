@@ -1,4 +1,4 @@
-# 🚀 jeju-mandarin의 유틸리티 허브 (https://jeju-mandarin.github.io)
+# 🚀 jeju-mandarin의 유틸리티 허브
 
 일상 속에서 유용하게 사용할 수 있는 간단한 정적 웹 도구(유틸리티)들을 모아둔 메인 포털입니다.
 
@@ -24,6 +24,12 @@
 4.  **[⌨️ 실시간 글자 수 세기](https://jeju-mandarin.github.io/text-utils/)**
     * 글자 수, 바이트(UTF-8), 단어 수, 예상 읽기 시간 및 실제 입력 시간을 실시간으로 측정합니다.
 
+5.  **[🌀 오늘 뭐 먹지? 룰렛](https://jeju-mandarin.github.io/food-roulette/)**
+    * 메뉴를 랜덤 추천하며, `localStorage`를 이용해 나만의 메뉴를 추가/관리할 수 있습니다.
+
+6.  **🏦 대출 이자 계산기**
+    * (서비스 준비 중) 원리금/원금 균등 상환 방식의 대출 이자를 계산합니다.
+
 ---
 
 ## 💻 사용 기술
@@ -33,3 +39,9 @@
 * HTML5
 * CSS3
 * Vanilla JavaScript (ES6+)
+
+---
+
+## 📄 라이선스
+
+이 프로젝트는 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다.

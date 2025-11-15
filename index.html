@@ -20,7 +20,7 @@
         }
         .container {
             width: 100%;
-            max-width: 800px;
+            max-width: 1100px;
             margin: 20px auto;
         }
         
@@ -40,18 +40,20 @@
             margin-top: 5px;
         }
 
-        /* 카드 그리드 */
+        /* 카드 그리드 (3열) */
         .card-grid {
             display: grid;
-            /* 모바일에서는 1열, 데스크탑(600px 이상)에서는 2열 */
             grid-template-columns: 1fr;
             gap: 25px;
         }
-
-        /* 600px 이상일 때 2열 그리드로 변경 */
         @media (min-width: 600px) {
             .card-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 900px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
             }
         }
 
@@ -62,7 +64,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             padding: 25px;
             display: flex;
-            flex-direction: column; /* 내부 요소들을 세로로 정렬 */
+            flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover {
@@ -72,7 +74,7 @@
         .card h2 {
             font-size: 1.4rem;
             margin-top: 0;
-            color: #007bff;
+            color: #007bff; 
             display: flex;
             align-items: center;
         }
@@ -84,7 +86,7 @@
             font-size: 1rem;
             color: #666;
             line-height: 1.6;
-            flex-grow: 1; /* 이 부분이 p 태그를 늘려서 버튼을 맨 아래로 밀어냄 */
+            flex-grow: 1;
         }
         
         /* 카드 내부 버튼 */
@@ -97,12 +99,67 @@
             background-color: #007bff;
             padding: 12px 15px;
             border-radius: 5px;
-            margin-top: 15px; /* 설명(p)과의 간격 */
+            margin-top: 15px;
             transition: background-color 0.2s;
+            cursor: pointer; /* <a> 태그가 아니어도 클릭 가능하게 */
         }
         .card-button:hover {
             background-color: #0056b3;
         }
+        
+        .card-button.coming-soon {
+            background-color: #6c757d;
+        }
+        .card-button.coming-soon:hover {
+            background-color: #5a6268;
+        }
+
+        /* --- [추가된 CSS] 팝업(모달) 스타일 --- */
+        .modal-overlay {
+            display: none; /* 평소에는 숨김 */
+            position: fixed; /* 화면 전체 고정 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 반투명 검은 배경 */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .modal-content h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .modal-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .modal-close-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .modal-close-btn:hover {
+            background-color: #0056b3;
+        }
+        /* --- (CSS 추가 끝) --- */
 
         /* 푸터 */
         footer {
@@ -127,26 +184,36 @@
 
                 <div class="card">
                     <h2><span class="emoji">🍀</span> 로또 번호 생성기</h2>
-                    <p>원하는 개수만큼 중복되지 않는 로또 번호 조합을 생성합니다. 한 줄 내의 중복은 물론, 여러 줄 간의 중복도 100% 방지합니다.</p>
+                    <p>원하는 개수만큼 중복되지 않는 로또 번호 조합을 생성합니다. (중복 100% 방지)</p>
                     <a href="https://jeju-mandarin.github.io/lotto/" class="card-button">사용해보기 &rarr;</a>
                 </div>
-
                 <div class="card">
                     <h2><span class="emoji">💰</span> 예적금 이자 계산기</h2>
-                    <p>복리/단리, 적금/예금 4가지 방식의 이자를 계산합니다. 15.4%의 세금을 적용한 세후 총액과 방식별 차액을 비교해 줍니다.</p>
+                    <p>복리/단리, 적금/예금 방식의 세후 이자 및 차액을 비교 계산합니다.</p>
                     <a href="https://jeju-mandarin.github.io/savecalc/" class="card-button">사용해보기 &rarr;</a>
                 </div>
-
                 <div class="card">
                     <h2><span class="emoji">⏳</span> D-Day 계산기</h2>
-                    <p>기념일이나 중요한 일정까지 남은 날짜(D-), 혹은 지난 날짜(D+)를 계산하고 목록으로 관리할 수 있습니다.</p>
+                    <p>기념일이나 중요한 일정까지 남은/지난 날짜(D±)를 계산하고 관리합니다.</p>
                     <a href="https://jeju-mandarin.github.io/d-day/" class="card-button">사용해보기 &rarr;</a>
                 </div>
-
                 <div class="card">
                     <h2><span class="emoji">⌨️</span> 실시간 글자 수 세기</h2>
-                    <p>텍스트의 글자 수(공백 포함/제외), UTF-8 바이트, 단어 수, 줄 수를 실시간으로 계산합니다. 예상 읽기 시간과 입력 경과 시간도 측정해 줍니다.</p>
+                    <p>글자 수, UTF-8 바이트, 단어 수, 예상 읽기 시간 및 실제 입력 시간을 측정합니다.</p>
                     <a href="https://jeju-mandarin.github.io/text-utils/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+                <div class="card">
+                    <h2><span class="emoji">🌀</span> 오늘 뭐 먹지? 룰렛</h2>
+                    <p>메뉴를 랜덤 추천하며, 나만의 메뉴를 직접 추가하고 관리할 수 있습니다. (localStorage)</p>
+                    <a href="https://jeju-mandarin.github.io/food-roulette/" class="card-button">사용해보기 &rarr;</a>
+                </div>
+                
+                <div class="card">
+                    <h2><span class="emoji">🏦</span> 대출 이자 계산기</h2>
+                    <p>원리금 균등, 원금 균등 상환 방식의 월 납입액과 총 이자를 계산합니다. (서비스 준비 중입니다.)</p>
+                    <button id="open-modal-btn" class="card-button coming-soon">
+                        서비스 준비 중...
+                    </button>
                 </div>
 
             </div>
@@ -157,5 +224,38 @@
         </footer>
 
     </div>
-</body>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🚧</h2>
+            <h2>서비스 준비 중입니다.</h2>
+            <p>대출 이자 계산기 기능은 현재 개발 중입니다.<br>빠른 시일 내에 찾아뵙겠습니다.</p>
+            <button id="modal-close-btn" class="modal-close-btn">닫기</button>
+        </div>
+    </div>
+    <script>
+        // 1. 필요한 요소 선택
+        const modalOverlay = document.getElementById('modal-overlay');
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+
+        // 2. 열기 버튼 클릭 시
+        openModalBtn.addEventListener('click', function() {
+            modalOverlay.style.display = 'flex'; // 팝업 보이기
+        });
+
+        // 3. 닫기 버튼 클릭 시
+        closeModalBtn.addEventListener('click', function() {
+            modalOverlay.style.display = 'none'; // 팝업 숨기기
+        });
+        
+        // 4. (선택) 배경 클릭 시 닫기
+        modalOverlay.addEventListener('click', function(event) {
+            // 팝업 내용(modal-content)이 아닌 배경(modal-overlay)을 클릭했을 때만 닫힘
+            if (event.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    </script>
+    </body>
 </html>
